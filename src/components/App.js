@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Gallery from "react-grid-gallery";
 
-import SearchBar from "./SearchBar.js";
+import Banner from "./Banner.js";
 import GIPHY_API_KEY from "../config/giphy.js";
 import reformatData from "../lib/reformatData.js";
 
@@ -13,6 +13,9 @@ class App extends Component {
       gifs: []
     };
     this.handleQuery = this.handleQuery.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+    this.handleFavorites = this.handleFavorites.bind(this);
+    this.handleHome = this.handleHome.bind(this);
   }
 
   componentDidMount() {
@@ -43,7 +46,6 @@ class App extends Component {
         .then(res => {
           res = res.data.data;
           let gifs = reformatData(res);
-          console.log(gifs);
 
           this.setState({
             gifs: gifs
@@ -55,10 +57,27 @@ class App extends Component {
     }
   };
 
+  handleFavorites = e => {
+    console.log("Favorites");
+  };
+
+  handleUpload = e => {
+    console.log("upload");
+  };
+
+  handleHome = e => {
+    console.log("home");
+  };
+
   render() {
     return (
       <div>
-        <SearchBar handleQuery={this.handleQuery} />
+        <Banner
+          handleQuery={this.handleQuery}
+          handleUpload={this.handleUpload}
+          handleFavorites={this.handleFavorites}
+          handleHome={this.handleHome}
+        />
         <Gallery images={this.state.gifs} />
       </div>
     );

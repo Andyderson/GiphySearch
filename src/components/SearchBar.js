@@ -11,6 +11,7 @@ class SearchBar extends Component {
   render() {
     return (
       <input
+        className="searchbar"
         placeholder="Search for GIFS!"
         onKeyPress={this.props.handleQuery}
       />
