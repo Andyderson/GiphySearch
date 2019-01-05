@@ -27,6 +27,8 @@ class App extends Component {
         res = res.data.data;
         let gifs = reformatData(res);
 
+        console.log(res);
+
         this.setState({
           gifs: gifs
         });
