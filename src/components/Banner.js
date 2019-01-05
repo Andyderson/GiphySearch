@@ -12,8 +12,6 @@ class Banner extends Component {
   }
 
   render() {
-    //Favorites
-
     return (
       <div className="banner">
         <h1 className="giphytext">GiphySearch</h1>
