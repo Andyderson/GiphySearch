@@ -1,3 +1,5 @@
+//Potential to take out completely
+
 import React, { Component } from "react";
 import axios from "axios";
 
@@ -13,27 +15,12 @@ class LandingPage extends Component {
     };
   }
 
-  componentDidMount() {
-    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${GIPHY_API_KEY}&limit=25&rating=G`;
-
-    axios
-      .get(url)
-      .then(res => {
-        res = res.data.data;
-        let gifs = reformatData(res);
-
-        this.setState({
-          gifs: gifs
-        });
-      })
-      .catch(error => {
-        console.log("Axios GET error", error);
-      });
-  }
-
   render() {
-    let gifs = this.state.gifs;
-    return <List gifs={gifs} />;
+    return (
+      <div>
+        <List />
+      </div>
+    );
   }
 }
 

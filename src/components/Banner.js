@@ -1,19 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
 import SearchBar from "./SearchBar.js";
-import Upload from "./Upload.js";
-import Favorites from "./Favorites.js";
-// import Home from "./Home.js";
 
 const Banner = props => {
   return (
     <div>
       <h1 className="giphytext">GiphySearch</h1>
+      <SearchBar handleQuery={props.handleQuery} />
       <div>
-        <select>
+        <select className="sort" onChange={e => props.handleSort(e)}>
           <option value="">Sort By</option>
-          <option value="">Newest</option>
-          <option value="">Oldest</option>
+          <option value="Newest">Newest</option>
+          <option value="Oldest">Oldest</option>
         </select>
       </div>
     </div>

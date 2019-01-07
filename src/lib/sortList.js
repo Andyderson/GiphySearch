@@ -1,7 +1,7 @@
 export const ascending = (a, b) => {
-  if (a.upload > b.upload) {
+  if (a.datetime > b.datetime) {
     return 1;
-  } else if (a.upload === b.upload) {
+  } else if (a.datetime === b.datetime) {
     return 0;
   } else {
     return -1;
@@ -9,9 +9,9 @@ export const ascending = (a, b) => {
 };
 
 export const descending = (a, b) => {
-  if (a.upload < b.upload) {
+  if (a.datetime < b.datetime) {
     return 1;
-  } else if (a.upload === b.upload) {
+  } else if (a.datetime === b.datetime) {
     return 0;
   } else {
     return -1;
