@@ -23,6 +23,7 @@ class List extends Component {
       .get(url)
       .then(res => {
         res = res.data.data;
+        console.log(res);
         let gifs = reformatData(res);
 
         this.setState({
@@ -80,13 +81,47 @@ class List extends Component {
     }
   };
 
+  handleFavorites = i => {
+    //Fix mouseOver delay when favoriting
+    let gifs = this.state.gifs;
+    let favorites;
+
+    let image = gifs[i];
+
+    if (JSON.parse(localStorage.getItem("favorites")) === null) {
+      localStorage.setItem("favorites", JSON.stringify([]));
+    }
+
+    favorites = [...JSON.parse(localStorage.getItem("favorites"))];
+
+    if (image.hasOwnProperty("isSelected")) {
+      image.isSelected = !image.isSelected;
+    } else {
+      image.isSelected = true;
+    }
+
+    if (image.isSelected) {
+      if (favorites.find(gif => gif.id === image.id)) {
+        return;
+      }
+      favorites.push(image);
+    } else {
+      favorites = favorites.filter(gif => gif.id !== image.id);
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    // localStorage.clear();
+    console.log("favorites", favorites);
+  };
+
   render() {
     let gifs = this.state.gifs;
 
     return (
       <div>
         <Banner handleQuery={this.handleQuery} handleSort={this.handleSort} />
-        <Gallery images={gifs} />
+        <Gallery images={gifs} onSelectImage={i => this.handleFavorites(i)} />
       </div>
     );
   }

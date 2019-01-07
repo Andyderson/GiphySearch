@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import LandingPage from "./LandingPage.js";
 import List from "./List.js";
 
 class App extends Component {
@@ -11,7 +10,7 @@ class App extends Component {
     };
   }
 
-  handleFavorites = favorites => {
+  updateFavorites = favorites => {
     this.setState({
       favorites: favorites
     });
@@ -28,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <List />
+        <List updateFavorites={this.updateFavorites} />
       </div>
     );
   }
