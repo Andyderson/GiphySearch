@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Gallery from "react-grid-gallery";
 
 import Banner from "./Banner.js";
+import LandingPage from "./LandingPage.js";
 import GIPHY_API_KEY from "../config/giphy.js";
 import reformatData from "../lib/reformatData.js";
 
@@ -10,32 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gifs: []
+      favorites: []
     };
-    this.handleQuery = this.handleQuery.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
-    this.handleFavorites = this.handleFavorites.bind(this);
-    this.handleHome = this.handleHome.bind(this);
-  }
-
-  componentDidMount() {
-    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${GIPHY_API_KEY}&limit=25&rating=G`;
-
-    axios
-      .get(url)
-      .then(res => {
-        res = res.data.data;
-        let gifs = reformatData(res);
-
-        console.log(res);
-
-        this.setState({
-          gifs: gifs
-        });
-      })
-      .catch(error => {
-        console.log("Axios GET error", error);
-      });
   }
 
   handleQuery = e => {
@@ -59,8 +35,10 @@ class App extends Component {
     }
   };
 
-  handleFavorites = e => {
-    console.log("Favorites");
+  handleFavorites = favorites => {
+    this.setState({
+      favorites: favorites
+    });
   };
 
   handleUpload = e => {
@@ -74,13 +52,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Banner
-          handleQuery={this.handleQuery}
-          handleUpload={this.handleUpload}
-          handleFavorites={this.handleFavorites}
-          handleHome={this.handleHome}
-        />
-        <Gallery images={this.state.gifs} />
+        <Banner />
+        <LandingPage handleFavorites={this.handleFavorites} />
       </div>
     );
   }

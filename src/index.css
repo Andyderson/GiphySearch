@@ -17,6 +17,7 @@ body {
 }
 
 .giphytext {
+    color: white;
     display: inline-block;
     margin: 10px;
 }
