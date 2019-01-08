@@ -100,7 +100,6 @@ class List extends Component {
     localStorage.setItem("favorites", JSON.stringify(favorites));
     this.props.updateFavorites(favorites);
     // localStorage.clear();
-    // console.log("favorites", favorites);
   };
 
   render() {
