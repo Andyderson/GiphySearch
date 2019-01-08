@@ -4,7 +4,6 @@ import axios from "axios";
 import List from "./List.js";
 import GIPHY_API_KEY from "../config/giphy.js";
 import reformatData from "../lib/reformatData.js";
-import { ascending, descending } from "../lib/sortList.js";
 
 class LandingPage extends Component {
   constructor(props) {

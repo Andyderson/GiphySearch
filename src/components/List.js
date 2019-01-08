@@ -13,12 +13,19 @@ class List extends Component {
     super(props);
     this.state = {
       gifs: [],
-      sorted: false
+      sorted: false,
+      queried: false
     };
   }
 
   handleSort = e => {
-    let gifs = this.props.gifs.slice();
+    let gifs;
+
+    if (this.state.queried === true || this.state.sorted === true) {
+      gifs = this.state.gifs.slice();
+    } else {
+      gifs = this.props.gifs.slice();
+    }
 
     let input = e.target.value;
     let sortValue;
@@ -54,7 +61,8 @@ class List extends Component {
           let gifs = reformatData(res);
 
           this.setState({
-            gifs: gifs
+            gifs: gifs,
+            queried: true
           });
         })
         .catch(error => {
@@ -66,7 +74,7 @@ class List extends Component {
   handleFavorites = i => {
     let gifs;
 
-    if (this.state.sorted === true) {
+    if (this.state.sorted === true || this.state.queried === true) {
       gifs = this.state.gifs;
     } else {
       gifs = this.props.gifs;
@@ -105,7 +113,7 @@ class List extends Component {
   render() {
     let gifs;
 
-    if (this.state.sorted === true) {
+    if (this.state.sorted === true || this.state.queried === true) {
       gifs = this.state.gifs;
     } else {
       gifs = this.props.gifs;
