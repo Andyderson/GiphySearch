@@ -8,7 +8,12 @@ const Banner = props => {
       <h1 className="giphytext">GiphySearch</h1>
       <SearchBar handleQuery={props.handleQuery} />
       <div>
-        <select className="sort" onChange={e => props.handleSort(e)}>
+        <select
+          className="sort"
+          onChange={e => {
+            props.handleSort(e);
+          }}
+        >
           <option value="">Sort By</option>
           <option value="Newest">Newest</option>
           <option value="Oldest">Oldest</option>

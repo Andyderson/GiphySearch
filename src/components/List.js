@@ -7,6 +7,7 @@ import GIPHY_API_KEY from "../config/giphy.js";
 import reformatData from "../lib/reformatData.js";
 import { ascending, descending } from "../lib/sortList.js";
 
+//Fix Favorites not popping up on reload
 class List extends Component {
   constructor(props) {
     super(props);
@@ -16,26 +17,8 @@ class List extends Component {
     };
   }
 
-  componentDidMount() {
-    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${GIPHY_API_KEY}&limit=25&rating=G`;
-
-    axios
-      .get(url)
-      .then(res => {
-        res = res.data.data;
-        let gifs = reformatData(res);
-
-        this.setState({
-          gifs: gifs
-        });
-      })
-      .catch(error => {
-        console.log("Axios GET error", error);
-      });
-  }
-
   handleSort = e => {
-    let gifs = this.state.gifs.slice();
+    let gifs = this.props.gifs.slice();
 
     let input = e.target.value;
     let sortValue;
@@ -81,7 +64,14 @@ class List extends Component {
   };
 
   handleFavorites = i => {
-    let gifs = this.state.gifs;
+    let gifs;
+
+    if (this.state.sorted === true) {
+      gifs = this.state.gifs;
+    } else {
+      gifs = this.props.gifs;
+    }
+
     let favorites;
 
     let image = gifs[i];
@@ -98,7 +88,7 @@ class List extends Component {
       image.isSelected = true;
     }
 
-    if (image.isSelected) {
+    if (image.isSelected === true) {
       if (favorites.find(gif => gif.id === image.id)) {
         return;
       }
@@ -110,16 +100,28 @@ class List extends Component {
     localStorage.setItem("favorites", JSON.stringify(favorites));
     this.props.updateFavorites(favorites);
     // localStorage.clear();
-    console.log("favorites", favorites);
+    // console.log("favorites", favorites);
   };
 
   render() {
-    let gifs = this.state.gifs;
+    let gifs;
+
+    if (this.state.sorted === true) {
+      gifs = this.state.gifs;
+    } else {
+      gifs = this.props.gifs;
+    }
 
     return (
       <div>
         <Banner handleQuery={this.handleQuery} handleSort={this.handleSort} />
-        <Gallery images={gifs} onSelectImage={i => this.handleFavorites(i)} />
+        <Gallery
+          title={this.props.title}
+          images={gifs}
+          onSelectImage={i => {
+            this.handleFavorites(i);
+          }}
+        />
       </div>
     );
   }

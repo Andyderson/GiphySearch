@@ -15,9 +15,9 @@ class App extends Component {
     };
   }
 
-  updateFavorites = favorites => {
+  updateFavorites = favorite => {
     this.setState({
-      favorites: favorites
+      favorites: favorite
     });
   };
 
@@ -31,13 +31,19 @@ class App extends Component {
               exact
               path="/"
               render={() => (
-                <LandingPage updateFavorites={this.updateFavorites} />
+                <LandingPage
+                  updateFavorites={this.updateFavorites}
+                  favorites={this.state.favorites}
+                />
               )}
             />
             <Route
               path="/favorites"
               render={() => (
-                <Favorites updateFavorites={this.updateFavorites} />
+                <Favorites
+                  updateFavorites={this.updateFavorites}
+                  favorites={this.state.favorites}
+                />
               )}
             />
             <Route path="/upload" render={() => <Upload />} />

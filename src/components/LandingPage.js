@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import List from "./List.js";
+import GIPHY_API_KEY from "../config/giphy.js";
+import reformatData from "../lib/reformatData.js";
+import { ascending, descending } from "../lib/sortList.js";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -10,10 +14,33 @@ class LandingPage extends Component {
     };
   }
 
+  componentDidMount() {
+    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${GIPHY_API_KEY}&limit=25&rating=G`;
+
+    axios
+      .get(url)
+      .then(res => {
+        res = res.data.data;
+        let gifs = reformatData(res);
+
+        this.setState({
+          gifs: gifs
+        });
+      })
+      .catch(error => {
+        console.log("Axios GET error", error);
+      });
+  }
+
   render() {
     return (
       <div>
-        <List updateFavorites={this.props.updateFavorites} />
+        <List
+          title="landingpage"
+          updateFavorites={this.props.updateFavorites}
+          favorites={this.props.favorites}
+          gifs={this.state.gifs}
+        />
       </div>
     );
   }
