@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import List from "./List.js";
+import LandingPage from "./LandingPage.js";
+import Favorites from "./Favorites.js";
+import NoMatch from "./NoMatch.js";
+import NavigationBar from "./NavigationBar.js";
+import Upload from "./Upload.js";
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +31,28 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <List updateFavorites={this.updateFavorites} />
-      </div>
+      <BrowserRouter>
+        <div>
+          <NavigationBar />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <LandingPage updateFavorites={this.updateFavorites} />
+              )}
+            />
+            <Route
+              path="/favorites"
+              render={() => (
+                <Favorites updateFavorites={this.updateFavorites} />
+              )}
+            />
+            <Route path="/upload" render={() => <Upload />} />
+            <Route component={<NoMatch />} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }

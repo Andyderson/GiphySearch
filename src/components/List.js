@@ -23,7 +23,6 @@ class List extends Component {
       .get(url)
       .then(res => {
         res = res.data.data;
-        console.log(res);
         let gifs = reformatData(res);
 
         this.setState({

@@ -3,12 +3,14 @@ import React, { Component } from "react";
 class Upload extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      upload: ""
+    };
   }
   render() {
     return (
-      <div className="upload" onClick={this.props.handleUpload}>
-        Upload
+      <div className="upload">
+        <input type="text" placeholder="Upload GIF URL" />
       </div>
     );
   }

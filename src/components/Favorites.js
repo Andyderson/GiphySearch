@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
+import List from "./List.js";
 
-class Favorites extends Component {
+class Favorites extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
