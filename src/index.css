@@ -81,6 +81,10 @@ body {
     padding-bottom: 5px;
 }
 
+.nomatch {
+    color: white
+}
+
 /* Italics for placeholder */
 ::-webkit-input-placeholder {
     font-style: italic;

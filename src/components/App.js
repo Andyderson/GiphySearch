@@ -21,14 +21,6 @@ class App extends Component {
     });
   };
 
-  handleUpload = e => {
-    console.log("upload");
-  };
-
-  handleHome = e => {
-    console.log("home");
-  };
-
   render() {
     return (
       <BrowserRouter>
@@ -49,7 +41,7 @@ class App extends Component {
               )}
             />
             <Route path="/upload" render={() => <Upload />} />
-            <Route component={<NoMatch />} />
+            <Route component={NoMatch} />
           </Switch>
         </div>
       </BrowserRouter>

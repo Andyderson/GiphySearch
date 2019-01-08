@@ -13,7 +13,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <List />
+        <List updateFavorites={this.props.updateFavorites} />
       </div>
     );
   }

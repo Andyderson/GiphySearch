@@ -81,7 +81,6 @@ class List extends Component {
   };
 
   handleFavorites = i => {
-    //Fix mouseOver delay when favoriting
     let gifs = this.state.gifs;
     let favorites;
 
@@ -109,7 +108,7 @@ class List extends Component {
     }
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
-
+    this.props.updateFavorites(favorites);
     // localStorage.clear();
     console.log("favorites", favorites);
   };
