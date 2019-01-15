@@ -5,9 +5,9 @@ import SearchBar from "./SearchBar.js";
 const Banner = props => {
   return (
     <div>
-      <h1 className="giphytext">GiphySearch</h1>
       <SearchBar handleQuery={props.handleQuery} />
-      <div>
+      <h1 className="giphytext">GiphySearch</h1>
+      <div className="sortBanner">
         <select
           className="sort"
           onChange={e => {

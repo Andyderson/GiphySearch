@@ -32,13 +32,21 @@ class Favorites extends React.Component {
   };
 
   render() {
-    return (
-      <Gallery
-        title="favorites"
-        images={this.props.favorites}
-        onSelectImage={i => this.deleteFavorites(i)}
-      />
-    );
+    let html;
+
+    if (this.props.favorites.length === 0) {
+      html = <h2 className="giphytext">No GIFS Favorited Yet!</h2>;
+    } else {
+      html = (
+        <Gallery
+          title="favorites"
+          images={this.props.favorites}
+          onSelectImage={i => this.deleteFavorites(i)}
+        />
+      );
+    }
+
+    return <div>{html}</div>;
   }
 }
 
