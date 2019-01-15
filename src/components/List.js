@@ -52,6 +52,11 @@ class List extends Component {
   handleQuery = e => {
     if (e.key === "Enter") {
       let query = e.target.value;
+
+      if (query === "") {
+        return;
+      }
+
       let url = `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${query}&limit=25&offset=0&rating=G&lang=en`;
 
       axios

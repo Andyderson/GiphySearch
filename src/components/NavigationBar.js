@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 const LinkDiv = styled.ul`
   text-align: center;
-  font-family: times new roman;
   a {
     font-size: 20px;
+    font-weight: lighter;
     color: white;
     text-decoration: none;
   }
@@ -23,7 +23,7 @@ const LinkDiv = styled.ul`
 const NavigationBarDiv = styled.ul`
   width: 97.5%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around
   align-items: center;
   font-family: Serif;
   border-bottom: 2px solid white;
@@ -48,7 +48,7 @@ class NavigationBar extends React.Component {
         <LinkDiv>
           <h2>
             <NavLink exact to="/favorites">
-              Favorites
+              Favorites ({this.props.favLength})
             </NavLink>
           </h2>
         </LinkDiv>

@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <NavigationBar />
+          <NavigationBar favLength={this.state.favorites.length} />
           <Switch>
             <Route
               exact
