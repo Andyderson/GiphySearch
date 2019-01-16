@@ -7,7 +7,7 @@ body {
 
 .sortBanner {
     position: relative;
-    margin-left: 94.5%;
+    left: 94.5%;
 }
 
 .giphytext {
@@ -18,8 +18,4 @@ body {
     color:transparent;
     -webkit-background-clip: text;
     background-clip: text;
-}
-
-.nomatch {
-    color: white
 }

@@ -1,8 +1,8 @@
 import React from "react";
 
 const NoMatch = () => (
-  <div className="nomatch">
-    <h2>Error, Page Not Found</h2>
+  <div>
+    <h2 className="giphytext">Error, Page Not Found!</h2>
   </div>
 );
 

@@ -6,7 +6,7 @@ const Banner = props => {
   return (
     <div>
       <SearchBar handleQuery={props.handleQuery} />
-      <h1 className="giphytext">{props.title}</h1>
+      <h2 className="giphytext">{props.title}</h2>
       <div className="sortBanner">
         <select
           className="sort"

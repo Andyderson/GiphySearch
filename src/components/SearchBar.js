@@ -7,9 +7,15 @@ const SearchStyle = styled.input`
   height: 3%;
   background: white;
   position: absolute;
-  left: 69.5%;
+  left: 69.75%;
   font-size: 16px;
-  border-radius: 8px;
+  border-radius: 5px;
+  border: none;
+  outline: 0;
+  padding: 5px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box;
 `;
 
 class SearchBar extends Component {

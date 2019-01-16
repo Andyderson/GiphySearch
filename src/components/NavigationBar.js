@@ -2,6 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+const NavigationBarDiv = styled.ul`
+  width: 97.5%;
+  display: flex;
+  justify-content: space-around;
+  font-family: Serif;
+  border-bottom: 2px solid white;
+`;
+
 const LinkDiv = styled.ul`
   a {
     font-size: 24px;
@@ -47,14 +55,6 @@ const LinkDiv = styled.ul`
     max-width: 0;
     overflow: hidden;
   }
-`;
-
-const NavigationBarDiv = styled.ul`
-  width: 97.5%;
-  display: flex;
-  justify-content: space-around;
-  font-family: Serif;
-  border-bottom: 2px solid white;
 `;
 
 const GiphySearchDiv = styled.li`
@@ -112,11 +112,11 @@ class NavigationBar extends React.Component {
     return (
       <NavigationBarDiv>
         <GiphySearchDiv>
-          <h2>
+          <h1>
             <NavLink exact to="/">
               GiphySearch
             </NavLink>
-          </h2>
+          </h1>
         </GiphySearchDiv>
         <LinkDiv>
           <h2>
