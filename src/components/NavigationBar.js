@@ -48,7 +48,8 @@ class NavigationBar extends React.Component {
         <LinkDiv>
           <h2>
             <NavLink exact to="/favorites">
-              Favorites ({this.props.favLength})
+              Favorites{" "}
+              {this.props.favLength > 0 ? `(${this.props.favLength})` : ``}
             </NavLink>
           </h2>
         </LinkDiv>
