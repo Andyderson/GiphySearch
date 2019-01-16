@@ -1,4 +1,20 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const UploadStyle = styled.input`
+  min-width: 185px;
+  outline: 0;
+  padding: 5px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box;
+  border: none;
+  outline: 0;
+  border-bottom: 3px solid red;
+  &:focus {
+    border-color: #c1c1c1;
+  }
+`;
 
 class Upload extends Component {
   constructor(props) {
@@ -23,9 +39,9 @@ class Upload extends Component {
   render() {
     return (
       <div>
-        <h2 className="giphytext">Upload a GIF</h2>
+        <h2 className="giphytext">Upload Your GIF!</h2>
         <br />
-        <input type="text" placeholder="Upload GIF URL" />
+        <UploadStyle type="text" placeholder="Upload a GIF!" />
       </div>
     );
   }

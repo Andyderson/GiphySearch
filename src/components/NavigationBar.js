@@ -13,7 +13,6 @@ const NavigationBarDiv = styled.ul`
 const LinkDiv = styled.ul`
   a {
     font-size: 24px;
-    font-weight: lighter;
     text-decoration: none;
     display: inline-block;
     margin-top: 5px;
@@ -61,6 +60,7 @@ const GiphySearchDiv = styled.li`
   a {
     font-size: 36px;
     font-weight: bold;
+    font-family: Impact;
     text-decoration: none;
     display: inline-block;
     background-image: -webkit-gradient(

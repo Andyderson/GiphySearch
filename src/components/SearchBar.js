@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const SearchStyle = styled.input`
@@ -9,13 +9,16 @@ const SearchStyle = styled.input`
   position: absolute;
   left: 69.75%;
   font-size: 16px;
-  border-radius: 5px;
   border: none;
   outline: 0;
   padding: 5px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box;
+  border-bottom: 3px solid red;
+  &:focus {
+    border-color: #c1c1c1;
+  }
 `;
 
 const SearchBar = props => {
