@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import SearchBar from "./SearchBar.js";
 
@@ -20,5 +21,11 @@ const Banner = props => (
     </div>
   </div>
 );
+
+Banner.propTypes = {
+  title: PropTypes.string.isRequired,
+  handleQuery: PropTypes.func.isRequired,
+  handleSort: PropTypes.func.isRequired
+};
 
 export default Banner;

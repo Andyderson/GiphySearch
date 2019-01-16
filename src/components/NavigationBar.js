@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const NavigationBarDiv = styled.ul`
   width: 97.5%;
@@ -144,5 +145,9 @@ class NavigationBar extends React.Component {
     );
   }
 }
+
+NavigationBar.proptypes = {
+  favLength: PropTypes.number.isRequired
+};
 
 export default NavigationBar;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const SearchStyle = styled.input`
   min-width: 185px;
@@ -28,6 +29,10 @@ const SearchBar = props => {
       onKeyPress={props.handleQuery}
     />
   );
+};
+
+SearchBar.PropTypes = {
+  handleQuery: PropTypes.func.isRequired
 };
 
 export default SearchBar;

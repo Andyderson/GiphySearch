@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 import List from "./List.js";
 import GIPHY_API_KEY from "../config/giphy.js";
@@ -44,5 +45,10 @@ class LandingPage extends Component {
     );
   }
 }
+
+LandingPage.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateFavorites: PropTypes.func.isRequired
+};
 
 export default LandingPage;

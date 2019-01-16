@@ -1,5 +1,6 @@
 import React from "react";
 import Gallery from "react-grid-gallery";
+import PropTypes from "prop-types";
 
 class Favorites extends React.Component {
   constructor(props) {
@@ -51,5 +52,11 @@ class Favorites extends React.Component {
     return <div>{html}</div>;
   }
 }
+
+Favorites.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  favLength: PropTypes.number.isRequired,
+  updateFavorites: PropTypes.func.isRequired
+};
 
 export default Favorites;

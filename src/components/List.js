@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Gallery from "react-grid-gallery";
+import PropTypes from "prop-types";
 
 import Banner from "./Banner.js";
 import GIPHY_API_KEY from "../config/giphy.js";
@@ -142,5 +143,10 @@ class List extends Component {
     );
   }
 }
+
+List.propTypes = {
+  title: PropTypes.string.isRequired,
+  gifs: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default List;
