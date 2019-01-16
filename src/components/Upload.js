@@ -23,7 +23,8 @@ class Upload extends Component {
   render() {
     return (
       <div>
-        <h2>Upload a GIF</h2>
+        <h2 className="giphytext">Upload a GIF</h2>
+        <br />
         <input type="text" placeholder="Upload GIF URL" />
       </div>
     );

@@ -35,14 +35,16 @@ class Favorites extends React.Component {
     let html;
 
     if (this.props.favorites.length === 0) {
-      html = <h2 className="giphytext">No GIFS Favorited Yet!</h2>;
+      html = <h2 className="giphytext">No GIFs Favorited Yet!</h2>;
     } else {
       html = (
-        <Gallery
-          title="favorites"
-          images={this.props.favorites}
-          onSelectImage={i => this.deleteFavorites(i)}
-        />
+        <div>
+          <h2 className="giphytext">Favorites</h2>
+          <Gallery
+            images={this.props.favorites}
+            onSelectImage={i => this.deleteFavorites(i)}
+          />
+        </div>
       );
     }
 

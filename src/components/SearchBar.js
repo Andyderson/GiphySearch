@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 const SearchStyle = styled.input`
   min-width: 185px;
-  width: 30%;
+  width: 20%;
   height: 3%;
   background: white;
   position: absolute;
-  left: 59.5%;
+  left: 69.5%;
   font-size: 16px;
+  border-radius: 8px;
 `;
 
 class SearchBar extends Component {

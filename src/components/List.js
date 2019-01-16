@@ -126,7 +126,11 @@ class List extends Component {
 
     return (
       <div>
-        <Banner handleQuery={this.handleQuery} handleSort={this.handleSort} />
+        <Banner
+          handleQuery={this.handleQuery}
+          handleSort={this.handleSort}
+          title={this.props.title}
+        />
         <Gallery
           title={this.props.title}
           images={gifs}

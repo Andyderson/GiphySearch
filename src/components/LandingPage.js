@@ -35,7 +35,7 @@ class LandingPage extends Component {
     return (
       <div>
         <List
-          title="landingpage"
+          title="Trending GIFs"
           updateFavorites={this.props.updateFavorites}
           favorites={this.props.favorites}
           gifs={this.state.gifs}
