@@ -1,7 +1,6 @@
 {
     "extends": "airbnb",
     "plugins": [
-        "react",
-        "eslint-plugin-jsx-a11y"
+        "react"
     ]
 }

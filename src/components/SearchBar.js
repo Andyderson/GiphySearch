@@ -18,22 +18,13 @@ const SearchStyle = styled.input`
   box-sizing: border-box;
 `;
 
-class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ""
-    };
-  }
-
-  render() {
-    return (
-      <SearchStyle
-        placeholder="Search for GIFS!"
-        onKeyPress={this.props.handleQuery}
-      />
-    );
-  }
-}
+const SearchBar = props => {
+  return (
+    <SearchStyle
+      placeholder="Search for GIFS!"
+      onKeyPress={props.handleQuery}
+    />
+  );
+};
 
 export default SearchBar;
