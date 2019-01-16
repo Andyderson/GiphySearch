@@ -1,7 +1,7 @@
 import reformatData from "../lib/reformatData.js";
 
 describe("Reformat response data for photo gallery", () => {
-  let testData = [
+  const testData = [
     {
       images: {
         original: {
@@ -23,9 +23,9 @@ describe("Reformat response data for photo gallery", () => {
     }
   ];
 
-  let reformatted = reformatData(testData);
-  let gif = reformatted[0];
-  let testGif = testData[0];
+  const reformatted = reformatData(testData);
+  const gif = reformatted[0];
+  const testGif = testData[0];
 
   test("should reformat response data to proper object properties", () => {
     expect(Array.isArray(reformatted)).toBe(true);

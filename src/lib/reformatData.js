@@ -1,8 +1,8 @@
-//reformatData is used to get the data necessary to implement React Gallery
+// reformatData is used to get the data necessary to implement React Gallery
 
-const reformatData = data => {
-  return data.map(gif => {
-    let reformat = {};
+const reformatData = data =>
+  data.map(gif => {
+    const reformat = {};
     reformat.src = gif.images.original.url;
     reformat.thumbnail = gif.images.fixed_width.url;
     reformat.thumbnailWidth = parseInt(gif.images.preview_gif.width);
@@ -13,6 +13,5 @@ const reformatData = data => {
     reformat.datetime = gif.import_datetime;
     return reformat;
   });
-};
 
 export default reformatData;

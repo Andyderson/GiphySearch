@@ -14,16 +14,16 @@ class LandingPage extends Component {
   }
 
   componentDidMount() {
-    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${GIPHY_API_KEY}&limit=25&rating=G`;
+    const url = `https://api.giphy.com/v1/gifs/trending?api_key=${GIPHY_API_KEY}&limit=25&rating=G`;
 
     axios
       .get(url)
       .then(res => {
         res = res.data.data;
-        let gifs = reformatData(res);
+        const gifs = reformatData(res);
 
         this.setState({
-          gifs: gifs
+          gifs
         });
       })
       .catch(error => {
