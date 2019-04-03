@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const NavigationBarDiv = styled.ul`
   width: 97.5%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   font-family: Serif;
   border-bottom: 2px solid white;
 `;
