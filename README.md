@@ -9,6 +9,7 @@ GiphySearch is a single page web app that allows users to view and search trendi
 * Sorting feature by upload dates (ascending and descending).
 * Grid gallery display of searched GIFs.
 * Favoriting feature that allows users to mark and save favorites and view them in the "Favorites" page.
+* Users can submit their GIF links and preview the GIF under the "Upload" page.
 
 ## Get Started Fast!
 
