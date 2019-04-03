@@ -5,7 +5,7 @@ GiphySearch is a single page web app that allows users to view and search trendi
 ## Implemented Features
 
 * Search feature via API call to Giphy.com
-* Enabled responsive web design for mobile, table, and desktop.
+* Enabled responsive web design for mobile, tablet, and desktop.
 * Sorting feature by upload dates (ascending and descending).
 * Grid gallery display of searched GIFs.
 * Favoriting feature that allows users to mark and save favorites and view them in the "Favorites" page.
