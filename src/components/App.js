@@ -6,6 +6,7 @@ import Favorites from "./Favorites.js";
 import NoMatch from "./NoMatch.js";
 import NavigationBar from "./NavigationBar.js";
 import Upload from "./Upload.js";
+import DropDown from "./DropDown.js";
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <NavigationBar favLength={this.state.favorites.length} />
+          <DropDown favLength={this.state.favorites.length} />>
           <Switch>
             <Route
               exact

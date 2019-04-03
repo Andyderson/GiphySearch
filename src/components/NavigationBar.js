@@ -103,15 +103,53 @@ const GiphySearchDiv = styled.li`
   }
 `;
 
+const DropDownMenu = styled.li`
+  max-width: 0;
+  background: black;
+  overflow: hidden;
+  transition: all 0.5s;
+  @media (max-width: 470px) {
+    min-width: 40px;
+    max-width: 40px;
+  }
+`;
+
+const DropDownButton = styled.button`
+  background: white;
+  border: 0;
+  cursor: pointer;
+`;
+
 class NavigationBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      dropDown: false
+    };
   }
+
+  handleDropDown = () => {
+    let dropDown = document.querySelector(".dropdown");
+
+    if (this.state.dropDown) {
+      this.setState({
+        dropDown: !this.state.dropDown
+      });
+      dropDown.classList.remove("active");
+    } else {
+      this.setState({
+        dropDown: !this.state.dropDown
+      });
+      dropDown.classList.add("active");
+    }
+  };
 
   render() {
     return (
       <NavigationBarDiv>
+        <DropDownMenu>
+          <DropDownButton onClick={this.handleDropDown} />
+        </DropDownMenu>
         <GiphySearchDiv>
           <h1>
             <NavLink exact to="/">
