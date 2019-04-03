@@ -1,38 +1,52 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const UploadStyle = styled.input`
-  min-width: 185px;
-  outline: 0;
+const UploadInput = styled.input`
   padding: 5px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box;
-  border: none;
-  outline: 0;
-  border-bottom: 3px solid red;
-  &:focus {
-    border-color: #c1c1c1;
+  @media (max-width: 660px) {
+    min-width: 280px;
+    overflow: hidden;
   }
+`;
+
+const UploadForm = styled.form`
+  text-align: center;
+  border-radius: 5px;
+  @media (max-width: 660px) {
+    min-width: 280px;
+    overflow: hidden;
+  }
+`;
+
+const PreviewDiv = styled.div`
+  text-align: center;
+  padding: 5px img {
+    width: 50%;
+  }
+  padding-top: 10px;
 `;
 
 class Upload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      upload: ""
+      link: ""
     };
   }
 
   handleSubmit = e => {
-    let input = this.uploaded;
+    e.preventDefault();
+    e.stopPropagation();
+
+    let input = this.uploadedGIF.value;
 
     if (input === "") {
       return;
     }
 
     this.setState({
-      upload: input
+      link: input
     });
   };
 
@@ -41,7 +55,16 @@ class Upload extends Component {
       <div>
         <h2 className="giphytext">Upload Your GIF!</h2>
         <br />
-        <UploadStyle type="text" placeholder="Upload a GIF!" />
+        <UploadForm onSubmit={this.handleSubmit}>
+          <UploadInput
+            type="text"
+            placeholder="Insert GIF Link Here!"
+            ref={input => (this.uploadedGIF = input)}
+          />
+        </UploadForm>
+        <PreviewDiv ref={input => (this.previewGIF = input)}>
+          <img src={this.state.link} alt="" />
+        </PreviewDiv>
       </div>
     );
   }
